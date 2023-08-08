@@ -1,8 +1,10 @@
-import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Dropdown, Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
+import { Context } from '../../index';
 
 const CreateDevice = ({show, onHide}) => {
+    const {device} = useContext(Context)
     return (
         <Modal
             show={show}
@@ -12,14 +14,12 @@ const CreateDevice = ({show, onHide}) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Добавить тип
+                    Добавить устройство
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Form.Control
-                        placeholder={"Введите название типа"}
-                    />
+                    <Dropdown></Dropdown>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
