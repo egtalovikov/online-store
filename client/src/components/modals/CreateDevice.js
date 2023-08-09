@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Col, Dropdown, Form, Row } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { Context } from '../../index';
@@ -62,7 +62,7 @@ const CreateDevice = ({show, onHide}) => {
                         Добавить новое свойство
                     </Button>
                     {info.map(i =>
-                            <Row>
+                            <Row className="mt-4" key={i.number}>
                                 <Col md={4}>
                                     <Form.Control
                                         placeholder="Введите название свойства"
@@ -72,6 +72,11 @@ const CreateDevice = ({show, onHide}) => {
                                     <Form.Control
                                         placeholder="Введите описание свойства"
                                     />
+                                </Col>
+                                <Col md={4}>
+                                    <Button variant={"outline-danger"}>
+                                        Удалить
+                                    </Button>
                                 </Col>
                             </Row>
                             )
