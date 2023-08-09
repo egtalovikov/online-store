@@ -10,6 +10,9 @@ const CreateDevice = ({show, onHide}) => {
     const addInfo = () => {
         setInfo([...info, {title: '', description: '', number: Date.now()}])
     }
+    const removeInfo = (number) => {
+        setInfo(info.filter(i => i.number !== number))
+    }
 
     return (
         <Modal
@@ -74,7 +77,10 @@ const CreateDevice = ({show, onHide}) => {
                                     />
                                 </Col>
                                 <Col md={4}>
-                                    <Button variant={"outline-danger"}>
+                                    <Button
+                                        onClick={() => removeInfo(i.number)}
+                                        variant={"outline-danger"}
+                                    >
                                         Удалить
                                     </Button>
                                 </Col>
