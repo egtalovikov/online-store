@@ -19,7 +19,23 @@ const CreateDevice = ({show, onHide}) => {
             </Modal.Header>
             <Modal.Body>
                 <Form>
-                    <Dropdown></Dropdown>
+                    <Dropdown className="mt-2 mb-2">
+                        <Dropdown.Toggle>Выберите тип</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {device.types.map(type =>
+                                <Dropdown.Item key={type.id}>{type.name}</Dropdown.Item>
+                                )}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    <Dropdown className="mt-2 mb-2">
+                        <Dropdown.Toggle>Выберите брэнд</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {device.brands.map(brand =>
+                                <Dropdown.Item key={brand.id}>{brand.name}</Dropdown.Item>
+                                )}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    <Form.Control />
                 </Form>
             </Modal.Body>
             <Modal.Footer>
