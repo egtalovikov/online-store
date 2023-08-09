@@ -5,6 +5,7 @@ import { Context } from '../../index';
 
 const CreateDevice = ({show, onHide}) => {
     const {device} = useContext(Context)
+
     return (
         <Modal
             show={show}
@@ -35,7 +36,21 @@ const CreateDevice = ({show, onHide}) => {
                                 )}
                         </Dropdown.Menu>
                     </Dropdown>
-                    <Form.Control />
+                    <Form.Control
+                        className="mt-3"
+                        placeholder="Введите название устройства"
+                    />
+                    <Form.Control
+                        className="mt-3"
+                        placeholder="Введите стоимость устройства"
+                        type="number"
+                    />
+                    <Form.Control
+                        className="mt-3"
+                        type="file"
+                    />
+                    <hr/>
+
                 </Form>
             </Modal.Body>
             <Modal.Footer>
