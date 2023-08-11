@@ -5,6 +5,11 @@ import { Context } from '../../index';
 
 const CreateDevice = ({show, onHide}) => {
     const {device} = useContext(Context)
+    const [name, setName] = useState('')
+    const [price, setPrice] = useState(0)
+    const [file, setFile] = useState(null)
+    const [brand, setBrand] = useState(null)
+    const [type, setType] = useState(null)
     const [info, setInfo] = useState([])
 
     const addInfo = () => {
