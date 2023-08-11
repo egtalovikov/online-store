@@ -8,8 +8,6 @@ const CreateDevice = ({show, onHide}) => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
     const [file, setFile] = useState(null)
-    const [brand, setBrand] = useState(null)
-    const [type, setType] = useState(null)
     const [info, setInfo] = useState([])
 
     const addInfo = () => {
@@ -17,6 +15,10 @@ const CreateDevice = ({show, onHide}) => {
     }
     const removeInfo = (number) => {
         setInfo(info.filter(i => i.number !== number))
+    }
+
+    const selectFile = e => {
+        setFile(e.target.files[0])
     }
 
     return (
@@ -50,10 +52,14 @@ const CreateDevice = ({show, onHide}) => {
                         </Dropdown.Menu>
                     </Dropdown>
                     <Form.Control
+                        value={name}
+                        onChange={e => setName(e.target.value)}
                         className="mt-3"
                         placeholder="Введите название устройства"
                     />
                     <Form.Control
+                        value={price}
+                        onChange={e => setPrice(Number(e.target.value))}
                         className="mt-3"
                         placeholder="Введите стоимость устройства"
                         type="number"
@@ -61,6 +67,7 @@ const CreateDevice = ({show, onHide}) => {
                     <Form.Control
                         className="mt-3"
                         type="file"
+                        onChange={selectFile}
                     />
                     <hr/>
                     <Button
